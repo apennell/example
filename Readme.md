@@ -1,3 +1,6 @@
+This repo reproduces the issue laid out in [issue #1639](https://github.com/styleguidist/react-styleguidist/issues/1639),
+which attempts to resolve accessing Context in a new Wrapper component
+
 # React Styleguidist example style guide
 
 This example is supposed to be used to reproduce issues, if you want to learn how to use React Styleguidist see [examples in the main repository](https://github.com/styleguidist/react-styleguidist/tree/master/examples).

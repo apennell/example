@@ -9,6 +9,6 @@ Thumbs.db
 *.sublime-workspace
 *.log
 .eslintcache
-styleguide/
+styleguide/CNAME
 package-lock.json
 yarn.lock
