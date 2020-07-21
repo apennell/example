@@ -1,38 +1,46 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func, node } from 'prop-types';
+import styled from 'styled-components';
 
-import s from './Button.css';
-
-/**
- * The only true button.
- */
-export default function Button({ color, size, children }) {
-	let styles = {
-		color,
-		fontSize: Button.sizes[size],
-	};
-
-	return (
-		<button className={s.root} style={styles}>
-			{children}
-		</button>
-	);
-}
-
-Button.propTypes = {
-	/**
-	 * Button label.
-	 */
-	children: PropTypes.string.isRequired,
-	color: PropTypes.string,
-	size: PropTypes.oneOf(['small', 'normal', 'large']),
+const propTypes = {
+	/** Button label */
+	children: node.isRequired,
+	onClick: func,
 };
-Button.defaultProps = {
-	color: '#333',
-	size: 'normal',
+
+const defaultProps = {
+	onClick: null,
 };
-Button.sizes = {
-	small: '10px',
-	normal: '14px',
-	large: '18px',
-};
+
+const Button = styled.button`
+  background-color: ${props => props.theme.primaryColor};
+  border-radius: 3px;
+  border: none;
+  color: ${props => props.theme.textColorInverted};
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 56px;
+  min-width: 100px;
+  padding: 12px;
+  text-shadow: none;
+  transition: background-color 0.2s linear, color 0.2s linear;
+
+  &:hover {
+    background-color: ${props => props.theme.primaryColorHover};
+  }
+
+  &:active {
+    background-color: ${props => props.theme.primaryColorActive};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: ${props => props.theme.disabledColor};
+  }
+`;
+
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+
+/** @component */
+export default Button;
